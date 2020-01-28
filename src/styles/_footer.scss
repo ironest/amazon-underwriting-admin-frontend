@@ -1,0 +1,28 @@
+.footer {
+  flex-shrink: 0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  color: whitesmoke;
+  background-color: #1c2938;
+  font-size: small;
+  flex-shrink: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.to-left {
+  width: fit-content;
+  margin-left: 5px;
+}
+
+.to-right {
+  width: fit-content;
+  text-align: right;
+  margin-right: 5px;
+}

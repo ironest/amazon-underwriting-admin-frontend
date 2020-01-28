@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: $paragraph-color;
+
+  .content {
+    flex: 1 0 auto;
+  }
+
+}
