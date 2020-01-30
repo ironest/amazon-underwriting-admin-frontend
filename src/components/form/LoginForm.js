@@ -39,18 +39,16 @@ class LoginForm extends Component {
         return (
             <>
                 <p>{ error }</p>
-                <form onSubmit={this.onFormSubmit}>
-                    <p>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" value={email} onChange={(event) => this.onInputChange("email", event)} />
-                    </p>
-                    <p>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" name="password" value={password} onChange={(event) => this.onInputChange("password", event)} />
-                    </p>
-                    <p>
-                        <input type="submit" value="Login" />
-                    </p>
+                <form onSubmit={this.onFormSubmit} className="login-form">
+
+                    <label htmlFor="email">Email</label>
+                    <input type="email" name="email" value={email} onChange={(event) => this.onInputChange("email", event)} />
+
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" value={password} onChange={(event) => this.onInputChange("password", event)} />
+
+                    <input type="submit" value="Login" />
+                    
                 </form>
             </>
         );

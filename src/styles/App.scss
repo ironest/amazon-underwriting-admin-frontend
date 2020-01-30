@@ -66,3 +66,27 @@
   background-color: slategrey;
   padding: 5px;
 }
+
+.login-form {
+  margin: 0 auto;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input {
+    margin: 10px 0 20px;
+    display: block;
+  }
+
+  input[type=email],
+  input[type=password] {
+    width: 95%;
+  }
+
+  input[type=submit] {
+    margin: 10px auto 20px;
+  }
+
+}

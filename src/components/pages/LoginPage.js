@@ -6,8 +6,12 @@ class LoginPage extends Component {
         const { history } = this.props;
         return (
             <>
-                <h1>Login Page</h1>
-                <LoginForm history={history} />
+                <div className="row" >
+                    <div className="container">
+                        <h1>Login Page</h1>
+                        <LoginForm history={history} />
+                    </div>
+                </div>
             </>
         );
     }
