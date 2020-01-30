@@ -1,12 +1,35 @@
 import React, { Component } from "react";
-import AdminPage from "./pages/AdminPage";
+import { BrowserRouter, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import "normalize.css";
+import "./../styles/App.scss";
+import NavBar from "./NavBar";
+import Footer from "./Footer"
+import Childcare from "./pages/Childcare";
+import HomeBasedBusinesses from "./pages/HomeBasedBusinesses";
+import PersonalAccident from "./pages/PersonalAccident";
+import PrivateRoute from "./PrivateRoute";
 
 class App extends Component {
     render() {
         return (
-            <>
-                <AdminPage />
-            </>
+            <BrowserRouter>
+                <div className="content">
+                    <div className="banner-div"></div>
+                    <NavBar />
+                    <Route 
+                        exact 
+                        path="/" 
+                        render={(props) => {
+                            return <LoginPage {...props} />
+                        }}  
+                    />
+                    <PrivateRoute exact path="/childcare" component={Childcare} />
+                    <PrivateRoute exact path="/homebasedbusinesses" component={HomeBasedBusinesses} />
+                    <PrivateRoute exact path="/personalaccident" component={PersonalAccident} />                    
+                </div>
+                <Footer />
+            </BrowserRouter>
         )
     }
 }
