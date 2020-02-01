@@ -29,3 +29,17 @@ export const fetchInfo = () => {
       });
   }
 }
+
+export const deleteLink = (id) => {
+  return async (dispatch, getState) => {
+      let response = await LocalApi.delete(`/links/${id}`)
+        .catch(err => {
+          console.log(err);
+        })
+     
+      return dispatch({
+          type: "GET_PAGES",
+          payload: response.data
+      });
+  }
+}
