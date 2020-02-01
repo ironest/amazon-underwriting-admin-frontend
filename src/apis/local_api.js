@@ -6,6 +6,7 @@ const LocalApi = axios.create({
 });
 
 LocalApi.interceptors.request.use(function(config) {
+
     const state = store.getState();
     const token = state.auth.token;
 
@@ -15,5 +16,23 @@ LocalApi.interceptors.request.use(function(config) {
 
     return config;
 })
+
+LocalApi.interceptors.response.use(function(response) {
+        return response;
+    },
+    function(error) {
+
+        if (error.response.status === 401) {
+
+            console.log("The token seems to be invalid");
+
+            store.dispatch({
+                type: "AUTH_TOKEN",
+                payload: null
+            })
+
+        }
+    }
+)
 
 export default LocalApi;
