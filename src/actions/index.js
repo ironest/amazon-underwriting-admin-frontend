@@ -8,6 +8,13 @@ export const setAuthToken = (token) => {
   }
 }
 
+export const setLink = (link) => {
+  return {
+      type: "SET_LINK",
+      payload: link
+  }
+}
+
 export const fetchPages = () => {
   return async (dispatch, getState) => {
       let response = await LocalApi.get("/pages");
@@ -33,6 +40,34 @@ export const fetchInfo = () => {
 export const deleteLink = (id) => {
   return async (dispatch, getState) => {
       let response = await LocalApi.delete(`/links/${id}`)
+        .catch(err => {
+          console.log(err);
+        })
+     
+      return dispatch({
+          type: "GET_PAGES",
+          payload: response.data
+      });
+  }
+}
+
+export const createLink = (data) => {
+  return async (dispatch, getState) => {
+      let response = await LocalApi.post(`/links`, data)
+        .catch(err => {
+          console.log(err);
+        })
+     
+      return dispatch({
+          type: "GET_PAGES",
+          payload: response.data
+      });
+  }
+}
+
+export const editLink = (id, data) => {
+  return async (dispatch, getState) => {
+      let response = await LocalApi.put(`/links/${id}`, data)
         .catch(err => {
           console.log(err);
         })
