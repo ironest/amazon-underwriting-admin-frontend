@@ -8,6 +8,7 @@ import Footer from "./Footer"
 import Childcare from "./pages/Childcare";
 import HomeBasedBusinesses from "./pages/HomeBasedBusinesses";
 import PersonalAccident from "./pages/PersonalAccident";
+import FileUpload from "./pages/FileUpload";
 import PrivateRoute from "./PrivateRoute";
 
 class App extends Component {
@@ -28,7 +29,10 @@ class App extends Component {
                     />
                     <PrivateRoute exact path="/childcare" component={Childcare} />
                     <PrivateRoute exact path="/homebasedbusinesses" component={HomeBasedBusinesses} />
-                    <PrivateRoute exact path="/personalaccident" component={PersonalAccident} />                    
+                    <PrivateRoute exact path="/personalaccident" component={PersonalAccident} />
+
+                    <PrivateRoute exact path="/fileupload" component={FileUpload} />
+
                 </div>
                 <Footer />
             </BrowserRouter>
