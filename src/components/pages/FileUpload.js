@@ -76,7 +76,7 @@ class FileUpload extends Component {
 
             <h1>{title}</h1>
             
-            <form onSubmit={this.onFormSubmit} className="login-form">
+            <form onSubmit={this.onFormSubmit} className="generic-form">
 
               <label htmlFor="page">Destination page</label>
               <input type="text" name="page" value={file.pageName} disabled/>

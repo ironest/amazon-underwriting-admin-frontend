@@ -39,7 +39,7 @@ class LoginForm extends Component {
         return (
             <>
                 <p>{ error }</p>
-                <form onSubmit={this.onFormSubmit} className="login-form">
+                <form onSubmit={this.onFormSubmit} className="generic-form">
 
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" value={email} onChange={(event) => this.onInputChange("email", event)} />
