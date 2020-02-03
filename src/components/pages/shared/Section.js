@@ -50,8 +50,9 @@ class Section extends Component {
                       section.links.map(link => {
                           return (
                               <li key={link._id} className="link-record">
-                                  <ul>
+                                  <ul>                                  
                                       <li key={`name-${link._id}`}><span>{link.name}</span></li>
+                                      <li key={`down-${link._id}`}><a href={link.url}><img src="./img/icon-download.png" className="icon" alt="icon" /></a></li>
                                       <li key={`edit-${link._id}`}><a href="##" onClick={()=>{return this.onHandleLink(pageName, section, link);}}><img src="./img/icon-edit.png" className="icon" alt="icon" /></a></li>
                                       <li key={`delete-${link._id}`}><a href="##" onClick={()=>{return this.onDeleteLink(link._id);}}><img src="./img/icon-delete.png" className="icon" alt="icon" /></a></li>
                                   </ul>
