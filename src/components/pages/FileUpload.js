@@ -5,7 +5,8 @@ import { createLink, editLink } from "../../actions";
 class FileUpload extends Component {
 
   state = {
-    selectedFile: null
+    selectedFile: null,
+    linkName: null
   }
 
   componentDidMount() {
@@ -29,12 +30,13 @@ class FileUpload extends Component {
 
     const {file, createLink, editLink, history} = this.props;
 
-    const data = new FormData();
-    data.append("name", this.state.linkName);
-    data.append("file", this.state.selectedFile);
+
 
     if (!file.linkId) {
       
+      const data = new FormData();
+      data.append("name", this.state.linkName);
+      data.append("file", this.state.selectedFile);
       data.append("id", file.sectionId);
 
       createLink(data)
@@ -47,7 +49,10 @@ class FileUpload extends Component {
 
     } else {
 
-      editLink(file.linkId, data)
+      editLink(file.linkId,
+        {
+          name: this.state.linkName
+        })
         .then(() => {
           history.go(-2);
         })
