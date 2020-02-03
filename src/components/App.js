@@ -9,6 +9,7 @@ import Childcare from "./pages/Childcare";
 import HomeBasedBusinesses from "./pages/HomeBasedBusinesses";
 import PersonalAccident from "./pages/PersonalAccident";
 import FileUpload from "./pages/FileUpload";
+import BusinessInfo from "./pages/BusinessInfo"
 import PrivateRoute from "./PrivateRoute";
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
                     <PrivateRoute exact path="/personalaccident" component={PersonalAccident} />
 
                     <PrivateRoute exact path="/fileupload" component={FileUpload} />
+                    <PrivateRoute exact path="/businessinfo" component={BusinessInfo} />
 
                 </div>
                 <Footer />
