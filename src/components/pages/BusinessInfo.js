@@ -28,8 +28,17 @@ class BusinessInfo extends Component {
     let info = {[field]: this.state[field]};
 
     this.props.setInfo(info)
-      .then(() => {
-        console.log("Info updated");
+      .then(data => {
+
+        const { footer_info, childcare_info, hbb_info, accident_info, contact_info } = this.props.info;
+
+        this.setState({
+          childcare_info,
+          hbb_info,
+          accident_info,
+          contact_info,
+          footer_info
+        })
       })
       .catch(err => {
         console.log(err);
