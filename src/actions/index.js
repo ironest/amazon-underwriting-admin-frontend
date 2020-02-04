@@ -78,3 +78,18 @@ export const editLink = (id, data) => {
       });
   }
 }
+
+export const setInfo = (data) => {
+  return async (dispatch, getState) => {
+
+    let response = await LocalApi.put(`/info/`, data)
+      .catch(err => {
+        console.log(err);
+      })
+    
+    return dispatch({
+        type: "GET_INFO",
+        payload: response.data
+    });
+  }
+}
