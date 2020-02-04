@@ -11,6 +11,7 @@ import PersonalAccident from "./pages/PersonalAccident";
 import FileUpload from "./pages/FileUpload";
 import BusinessInfo from "./pages/BusinessInfo"
 import PrivateRoute from "./PrivateRoute";
+import Newsletter from "./pages/Newsletter";
 
 class App extends Component {
     render() {
@@ -34,6 +35,7 @@ class App extends Component {
 
                     <PrivateRoute exact path="/fileupload" component={FileUpload} />
                     <PrivateRoute exact path="/businessinfo" component={BusinessInfo} />
+                    <PrivateRoute exact path="/newsletter" component={Newsletter} />
 
                 </div>
                 <Footer />
