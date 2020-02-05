@@ -18,9 +18,6 @@ class NavBar extends Component {
                 <Link to="/personalaccident">
                     Personal Accident
                 </Link>
-                <Link to="/fileupload">
-                    File Upload
-                </Link>
                 <Link to="/businessinfo">
                     Businesses Info
                 </Link>
