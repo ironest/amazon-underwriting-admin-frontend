@@ -17,7 +17,7 @@ class LoginForm extends Component {
         const { history, setAuthToken } = this.props;
         const { email, password } = this.state;
 
-        axios.post("http://localhost:3000/login", { email, password })
+        axios.post(`${process.env.REACT_APP_BASEURL}/login`, { email, password })
             .then(response => {
                 console.log(response.data.token);
                 setAuthToken(response.data.token);
