@@ -1,8 +1,8 @@
-describe('Links Management Tests', () => {
+describe('Links Tests Suite', () => {
 
   before(function () {
 
-    cy.visit('http://localhost:3001')
+    cy.visit(`http://localhost:${Cypress.env('PORT') }`)
 
     cy.get('input[type="email"]').clear().type('user@domain.com')
     cy.get('input[type="password"]').clear().type('password')

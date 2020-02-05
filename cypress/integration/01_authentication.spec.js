@@ -1,8 +1,8 @@
-describe('Authentication Tests', () => {
+describe('Authentication Tests Suite', () => {
 
   it('Landing page succesfully loads', () => {
 
-    cy.visit('http://localhost:3001')
+    cy.visit(`http://localhost:${Cypress.env('PORT') }`)
 
   })
 
@@ -59,7 +59,7 @@ describe('Authentication Tests', () => {
 
     cy.get('input[type="submit"]').click()
     
-    cy.url().should('eq', 'http://localhost:3001/childcare')
+    cy.url().should('eq', `http://localhost:${Cypress.env('PORT') }/childcare`)
   
   })
 
