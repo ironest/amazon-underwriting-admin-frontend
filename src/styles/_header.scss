@@ -1,19 +1,36 @@
 .banner-div {
-  background-color: #b61615;
+  background-color: $red-bar-color;
   height: 50px;
-
-  img {
-    margin-left: 10px;
-  }
 }
 
 .nav-div {
-  background-color: #1c2938;
-  height: 50px;
+  background-color: $blue-bar-color;
+  height: fit-content;
+  padding: 10px;
+  text-align: center;
+
+    .right {
+      float: right;
+    }
 }
 
-.nav-div button {
-  background-color: #1c2938;
+.nav-div {
+  a:link, a:visited {
+  color: whitesmoke;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #496b8faf;
+  color: white;
+}
+}
+          
+.nav-div Link {
+  background-color: $blue-bar-color;
   height: 50px;
   color: whitesmoke;
 }
