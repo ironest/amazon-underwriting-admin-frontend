@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 const PrivateRoute = (props) => {
     const { token, ...rest } = props;
 
-    console.log(`token: ${token}`);
-
     if (!token) {
         return <Redirect to="/" />
     }

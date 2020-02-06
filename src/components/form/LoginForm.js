@@ -19,7 +19,6 @@ class LoginForm extends Component {
 
         axios.post(`${process.env.REACT_APP_BASEURL}/login`, { email, password })
             .then(response => {
-                console.log(response.data.token);
                 setAuthToken(response.data.token);
                 history.push("/childcare");
             })
