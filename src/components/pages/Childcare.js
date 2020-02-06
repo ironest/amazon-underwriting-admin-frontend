@@ -43,7 +43,7 @@ class Childcare extends Component {
 
                         {
                             commonSections && commonSections.map((section, idx) => {
-                                return <Section section={section} pageName="Childcare" key={`section-${idx}`} history={history}/>
+                                return <Section section={section} pageName="Common" key={`section-${idx}`} history={history}/>
                             })
                         }
 

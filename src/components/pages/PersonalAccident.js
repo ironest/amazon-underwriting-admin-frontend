@@ -37,13 +37,13 @@ class PersonalAccident extends Component {
 
                         {
                             currSections && currSections.map((section, idx) => {
-                                return <Section section={section} pageName="Childcare" key={`section-${idx}`} history={history}/>
+                                return <Section section={section} pageName="Personal Accident" key={`section-${idx}`} history={history}/>
                             })
                         }
 
                         {
                             commonSections && commonSections.map((section, idx) => {
-                                return <Section section={section} pageName="Childcare" key={`section-${idx}`} history={history}/>
+                                return <Section section={section} pageName="Common" key={`section-${idx}`} history={history}/>
                             })
                         }
 
