@@ -1,68 +1,196 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Amazon Underwriting - Public Frontend
 
-## Available Scripts
+### Links to deployed website
 
-In the project directory, you can run:
+* [Public frontend](http://auw-user-app.s3-website-ap-southeast-2.amazonaws.com)
+* [Admin frontend](http://auw-admin-app.s3-website-ap-southeast-2.amazonaws.com)
 
-### `npm start`
+### Links to GitHub repository
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [Public frontend](https://github.com/ironest/amazon-underwriting-public-frontend)
+* [Admin frontend](https://github.com/ironest/amazon-underwriting-admin-frontend)
+* [Backend](https://github.com/ironest/amazon-underwriting-backend)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Intro
 
-### `npm test`
+The project revolves around the **Amazon Underwriting Pty Ltd** business; they are a privately owned underwriting agency focussed on delivering insurance packages tailored for specific niche markets.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Purpose
 
-### `npm run build`
+Create a website to be used as a landing page in order to advertise **Amazon Underwriting PTY Ltd** on the internet with a more modern UI/UX. Along with improvements to its functionality/usability with a simple to use admin-only page that gives the owner an easy way to update parts of the website they may need to update regularly.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The purpose of this project has **two objectives**:
+1. Rebuilding the current production-live version of the [Amazon-Underwriting](https://amazonunderwriting.com.au/) website to give it a newer/fresher design and a smoother user experience.
+2. Creating a parallel web-app to be used as an admin-panel through which the business owner can autonomously manage content and media of the public website.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Functionality
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Database provisioning
+* Collection of user contact details
+* Authentication for Admin User
+* Administrator panel
+  * Upload of new documents
+  * Deletion of old documents
+  * Hide/Show of WIP documents
+* Single page application
+* Dynamic newsletter
+* Responsive layout
 
-### `npm run eject`
+### Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Core technologies are the MERN stack (MongoDB, Express, React and Node.js)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Dataflow Diagrams (Yourdon/DeMarco notation)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Legend**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img src="docs/dfd-legend.png" alt="Data Flow Diagram" width="200" />
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Users scenario**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="docs/dfd-users.png" alt="Data Flow Diagram" width="900" />
 
-### Code Splitting
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**Admin scenario**
 
-### Analyzing the Bundle Size
+<img src="docs/dfd-admin.png" alt="Data Flow Diagram" width="900" />
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Application Architecture Diagram
 
-### Making a Progressive Web App
+<img src="docs/application-architecture-diagram.png" alt="Architecture Diagram" width="900" />
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Getting Started
 
-### Advanced Configuration
+Each project requires a quick configuration before being usable; configuration relies on few environment variables variables which can be prepared through a `.env` file in the root of each project.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+The **backend project** requires:
+```
+DB_HOST=mongodb://localhost/<yourDBName>
+PORT=
+JWT_SECRET=
+AWS_ACCESS_KEY=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=
+AWS_BUCKET_NAME=
+```
 
-### Deployment
+The **public Frontend project** requires:
+```
+REACT_APP_BASEURL=<yourExpressAppURL>
+PORT=
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+The **admin Frontend project** requires:
+```
+REACT_APP_BASEURL=<yourExpressAppURL>
+PORT=
+```
 
-### `npm run build` fails to minify
+**Once finished with the configuration steps**, it is possible to start each individual project:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**1. To spin up the backend server:**
+   * open a terminal and move to folder `./src/backend`
+   * install any dependencies by running `npm install`
+   * Seed the database (including admin credential) with the command `npm run seed`
+   * start the server with `npm run dev-server`
+
+**2. To start the public frontend**
+   * open a new terminal and move to `./src/public-frontend`
+   * install any dependencies by running `npm install`
+   * start the app with `npm start`
+
+**3. To start the admin frontend (acting as CMS)**
+   * open a new terminal and move into `./src/admin-frontend`
+   * install any dependencies by running `npm install`
+   * start the app with `npm start`
+
+**4. To visit the public frontend app`**
+   * open a browser window and visit `http://localhost:3002/`
+
+**5. To visit the admin frontend app**
+   * open a browser window and visit `http://localhost:3001`
+
+The credential currently held in the database are:
+```
+  email: user@domain.com
+  password: password
+```
+
+### Backend libraries
+
+* **aws-sdk**: The official AWS SDK for JavaScript
+* **celebrate**: An express middleware function that wraps the joi validation library. This allows you to use this middleware in over routes
+* **cors**: A node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+* **dotenv**: A dependency module that loads environment variables from a .env file into process.env
+* **jsonwebtoken**: Javascript implementation of JSON Web Tokens.
+* **method-override**: Npm module that allows you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
+* **mongoose**: A MongoDB object modeling tool designed to work in an asynchronous environment.
+* **mongoose-bcrypt**: Mongoose plugin encrypting field(s) with bcrypt and providing methods to encrypt and verify
+* **multer**: A node.js middleware for handling multipart/form-data, which is primarily used for uploading files
+* **passport**: A middleware for Node.js to handle authenticate requests, which it does through an extensible set of plugins known as strategies
+* **passport-jwt**: A module that lets you authenticate endpoints using a JSON web token. It is intended to be used to secure RESTful endpoints without sessions.
+* **passport-local**: Passport strategy for authenticating with a username and password; this module lets you authenticate using a username and password in your Node.js applications.
+
+### Frontend libraries
+
+* **axios**: Promise based HTTP client for the browser and node.js
+* **node-sass**: It's a library that allows you to natively compile .scss files to css at incredible speed and automatically via a connect middleware.
+* **normalize.css**: Makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing
+* **react**: React is a JavaScript library for creating user interfaces.
+* **react-dom**: Entry point to the DOM and server renderers for React. It is intended to be paired with the generic React package, which is shipped as react to npm
+* **redux & react-redux**: Predictable state container for JavaScript apps. It helps you write applications that behave consistently across different environments
+* **redux-thunk**: Thunk middleware for Redux
+* **react-responsive-carousel**: Powerful, lightweight and fully customizable carousel component for React apps.
+
+### Formal testing frameworks
+
+**Cypress**
+Cypress is a fast, easy and reliable front end testing tool built for anything that runs in a browser.
+Cypress was employed to test the following major feature of our (admin) front-end app:
+* Authentication
+* NavBar Menu
+* Childcare Documents
+* Home Based Businesses Documents
+* Personal Accident Documents
+
+**Jest / Supertest**
+Jest is a JavaScript Testing Framework maintained by Facebook.
+Our team utilised Jest to verify the specific correctness of the backend.
+Feature stimulated:
+* Authentication
+* Links routes (get)
+* News routes (get)
+* Section routes (get)
+* Page routes (get)
+* Info routes (get)
+* Link deletion (including Bearer token)
+* News deletion (including Bearer token)
+
+## Wireframes
+
+* **Homepage**
+
+<img src="docs/wireframe-homepage.png" alt="homepage" width="900" />
+
+* **About Us**
+
+<img src="docs/wireframe-about-us.png" alt="about-us" width="900" />
+
+* **Childcare**
+
+<img src="docs/wireframe-childcare.png" alt="childcare" width="900" />
+
+* **Home-based Businesses**
+
+<img src="docs/wireframe-home-based-businesses.png" alt="home-based-businesses" width="900" />
+
+* **Admin Panel**
+
+<img src="docs/wireframe-admin.png" alt="admin" width="900" />
+
+* **Contact Form**
+
+<img src="docs/wireframe-contact.png" alt="contact" width="900" />
