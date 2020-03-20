@@ -1,4 +1,4 @@
-# Amazon Underwriting - Public Frontend
+# Amazon Underwriting - Admin Frontend
 
 ### Links to deployed website
 
